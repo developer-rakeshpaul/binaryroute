@@ -1,12 +1,22 @@
 <script>
-	import '../app.css';
+	import { onMount } from 'svelte';
 	import { initClient } from '@urql/svelte';
+	import Footer from '$lib/components/footer.svelte';
+	import Navbar from '$lib/components/navbar.svelte';
+	import '../app.css';
+	import { themeChange } from 'theme-change';
 
 	initClient({
 		url: import.meta.env.VITE_GRAPHQL_API
 	});
+
+	onMount(async () => {
+		themeChange(false);
+	});
 </script>
 
+<Navbar />
 <main class="container max-w-3xl mx-auto px-4 mb-20">
 	<slot />
 </main>
+<Footer />
