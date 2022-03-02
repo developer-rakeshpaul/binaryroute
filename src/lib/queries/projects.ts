@@ -1,18 +1,16 @@
+import { gql } from '@urql/core';
 import { operationStore } from '@urql/svelte';
+import { ProjectDetailsFragment } from './project.detail.fragment';
 
-export const projects = operationStore(`
-  query GetProjects {
-    projects {
-      name
-      slug
-      description
-      demo
-      sourceCode
-      image {
-        url
-      }
-    }
-  } 
-`);
+const ProjectsQuery = gql`
+	query GetProjects {
+		projects {
+			...ProjectDetails
+		}
+	}
+	${ProjectDetailsFragment}
+`;
+
+export const projects = operationStore(ProjectsQuery);
 
 export default projects;

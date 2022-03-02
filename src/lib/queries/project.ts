@@ -1,20 +1,13 @@
+import { ProjectDetailsFragment } from './project.detail.fragment';
+import { gql } from '@urql/core';
 import { operationStore } from '@urql/svelte';
 
-export const project = (slug: string) =>
-	operationStore(
-		`
-    query GetProject($slug: String!) {
-      project(where: {slug: $slug}) {
-        name
-        description
-        tags
-        demo
-        sourceCode
-        image {
-          url
-        }
-      }
-    },
-  `,
-		{ slug }
-	);
+const ProjectQuery = gql`
+	query GetProject($slug: String!) {
+		project(where: { slug: $slug }) {
+			...ProjectDetails
+		}
+	}
+	${ProjectDetailsFragment}
+`;
+export const project = (slug: string) => operationStore(ProjectQuery, { slug });
