@@ -1,12 +1,8 @@
 <script>
-	import { initClient, operationStore, query } from '@urql/svelte';
+	import { query } from '@urql/svelte';
 	import Project from '$lib/components/project.svelte';
 	import projects from '$lib/queries/projects';
 	import authors from '$lib/queries/authors';
-
-	initClient({
-		url: import.meta.env.VITE_GRAPHQL_API
-	});
 
 	query(projects);
 	query(authors);
