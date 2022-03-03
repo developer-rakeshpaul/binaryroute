@@ -1,17 +1,16 @@
 import { operationStore } from '@urql/svelte';
+import { gql } from '@urql/core';
+import { AuthorDetailsFragment } from './author.detail.fragment';
 
-export const authors = operationStore(`
-  query GetAuthors {
-    authors {
-      name
-      intro
-      bio
-      slug
-      picture {
-        url
-      }
-    }
-  }
-`);
+export const AuthorsQuery = gql`
+	${AuthorDetailsFragment}
+	query GetAuthors {
+		authors {
+			...AuthorDetails
+		}
+	}
+`;
 
-export default authors;
+export const authorsStore = operationStore(AuthorsQuery);
+
+export default authorsStore;

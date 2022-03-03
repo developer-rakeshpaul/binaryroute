@@ -9,10 +9,10 @@
 	export let slug;
 	import { marked } from 'marked';
 	import { query } from '@urql/svelte';
-	import { post as getPostStore } from '$lib/queries/post';
+	import { postStore } from '$lib/queries/post';
 
 	// slug is passed as a parameter in the operationStore function
-	const post = getPostStore(slug);
+	const post = postStore(slug);
 	query(post);
 </script>
 

@@ -11,6 +11,6 @@ const ProjectsQuery = gql`
 	${ProjectDetailsFragment}
 `;
 
-export const projects = operationStore(ProjectsQuery);
+export const projectsStore = operationStore(ProjectsQuery);
 
-export default projects;
+export default projectsStore;

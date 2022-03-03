@@ -11,6 +11,6 @@ export const PostQuery = gql`
 	}
 `;
 
-export const post = (slug: string) => operationStore(PostQuery, { slug });
+export const postStore = (slug: string) => operationStore(PostQuery, { slug });
 
-export default post;
+export default postStore;

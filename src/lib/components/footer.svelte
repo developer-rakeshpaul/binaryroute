@@ -4,7 +4,7 @@
 </script>
 
 <footer class="text-gray-100 body-font max-w-3xl  mx-auto">
-	<div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+	<div class="container py-8 mx-auto flex items-center sm:flex-row flex-col">
 		<div class="flex items-center flex-shrink-0">
 			<a
 				class="flex title-font font-medium items-center md:justify-start justify-center text-gray-100"

@@ -11,7 +11,7 @@
 {:else if $projects.error}
 	<p>Oh no... {$projects.error.message}</p>
 {:else}
-	<div>
+	<div class="flex flex-col space-y-4">
 		{#each $projects.data.projects as { name, slug, description, image }}
 			<Project {name} {slug} {description} url={image[0].url} />
 		{/each}

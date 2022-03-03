@@ -2,6 +2,7 @@
 	import { marked } from 'marked';
 	import { query } from '@urql/svelte';
 	import posts from '$lib/queries/posts';
+
 	query(posts);
 </script>
 

@@ -9,10 +9,10 @@
 	export let slug;
 	import { marked } from 'marked';
 	import { query } from '@urql/svelte';
-	import { project as getProjectStore } from '$lib/queries/project';
+	import { projectStore } from '$lib/queries/project';
 
 	// slug is passed as a parameter in the operationStore function
-	const project = getProjectStore(slug);
+	const project = projectStore(slug);
 	query(project);
 </script>
 

@@ -11,6 +11,6 @@ export const PostsQuery = gql`
 	}
 `;
 
-export const posts = operationStore(PostsQuery);
+export const postsStore = operationStore(PostsQuery);
 
-export default posts;
+export default postsStore;

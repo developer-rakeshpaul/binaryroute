@@ -10,4 +10,5 @@ const ProjectQuery = gql`
 	}
 	${ProjectDetailsFragment}
 `;
-export const project = (slug: string) => operationStore(ProjectQuery, { slug });
+export const projectStore = (slug: string) => operationStore(ProjectQuery, { slug });
+export default projectStore;
