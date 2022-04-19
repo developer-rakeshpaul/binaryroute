@@ -16,9 +16,11 @@
 
 		{#each $posts.data.posts as { title, slug, content, coverImage, tags }}
 			<div class="card text-center shadow-2xl mb-20">
-				<figure class="">
-					<img class="" src={coverImage.url} alt={`Cover image for ${title}`} />
-				</figure>
+				{#if coverImage?.url}
+					<figure class="">
+						<img class="" src={coverImage?.url} alt={`Cover image for ${title}`} />
+					</figure>
+				{/if}
 				<div class="card-body prose">
 					<h2 class="title">{title}</h2>
 					{@html marked(content).slice(0, 150)}

@@ -25,14 +25,15 @@
 {:else if $post.error}
 	<p>Oh no... {$post.error.message}</p>
 {:else}
-	<div class="sm:-mx-5 md:-mx-10 lg:-mx-20 xl:-mx-38 mb-5">
-		<img
-			class="rounded-xl"
-			src={$post.data.post.coverImage.url}
-			alt={`Cover image for ${$post?.data?.post.title}`}
-		/>
-	</div>
-
+	{#if $post.data.post.coverImage}
+		<div class="sm:-mx-5 md:-mx-10 lg:-mx-20 xl:-mx-38 mb-5">
+			<img
+				class="rounded-xl"
+				src={$post.data.post.coverImage?.url}
+				alt={`Cover image for ${$post?.data?.post.title}`}
+			/>
+		</div>
+	{/if}
 	<div class="prose prose-xl">
 		<h1>{$post?.data?.post.title}</h1>
 	</div>
